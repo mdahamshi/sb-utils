@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+    --lite-gray: #D6D9Dc;
+    --label-width: 120px;
+    --sb-theme-color: #1992d4;
+    --sb-conent-bg: #e2e8f0;
+}
+.sb-animate , #content { 
+    animation-duration: 0.5s;
+    animation-name: animate-fade;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+}
+@keyframes animate-fade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  width: 100vw;
+    background-color: var(--sb-conent-bg);
+  
+}
+.sb-shadow {
+   box-shadow: 4px 4px 4px rgba(72,73,121,0.15) !important;
+   z-index: 2;
+}
+.flex-row {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
