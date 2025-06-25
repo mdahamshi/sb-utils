@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "vitest"
   },
   "keywords": [
     "utilities",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "rollup": "^4.44.0"
+    "rollup": "^4.44.0",
+    "vitest": "^3.2.4"
   }
 }
