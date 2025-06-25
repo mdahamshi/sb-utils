@@ -91,5 +91,4 @@ function getRandomColor(palette) {
   return activePalette[Math.floor(Math.random() * activePalette.length)];
 }
 
-
 export { generateID, addCopyRight, createBoard, getRandomColor };

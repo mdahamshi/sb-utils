@@ -1,8 +1,12 @@
 // src/index.js
 
-import { generateID, addCopyRight, createBoard, getRandomColor } from './utils.js';
-import { ElementBuilder, labelAndInput } from './dom.js';
-
+import {
+  generateID,
+  addCopyRight,
+  createBoard,
+  getRandomColor,
+} from "./utils.js";
+import { ElementBuilder, labelAndInput } from "./dom.js";
 
 const sb_utils = {
   generateID,
@@ -13,7 +17,7 @@ const sb_utils = {
   labelAndInput,
 };
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   window.sb = sb_utils;
 }
 
