@@ -1,0 +1,35 @@
+{
+  "name": "@sarawebs/sb-utils",
+  "version": "1.0.0",
+  "description": "SaraWebs utility functions for web apps and tools",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "utilities",
+    "frontend",
+    "sarawebs",
+    "web-tools"
+  ],
+  "author": "Mohammad Dahamshi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdahamshi/sb-utils.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.44.0"
+  }
+}
