@@ -3,59 +3,61 @@ const INFO = {
   company: "SaraWebs",
   year: new Date().getFullYear(),
 };
+
 /**
- *
- * @param {string} prefix prefix to add before the generated id
- * @returns random id with prefix
- *
- * example: generateID('myapp') : retruns 'myapp-XXXXXXXX'
- * if no prefix provided: 'XXXXXXXXX'
+ * Generates a random ID with optional prefix.
+ * @param {string} [prefix=''] - Prefix to prepend to the ID.
+ * @returns {string} - A unique ID like 'myapp-XXXXXXX'.
  */
 function generateID(prefix = "") {
-  prefix = prefix ? prefix + "-" : prefix;
-  return prefix + crypto.randomUUID().toString().substring(0, 8);
+  return `${prefix ? prefix + "-" : ""}${crypto.randomUUID().slice(0, 8)}`;
 }
+
 /**
- *
- * @param {String} title title of the app
- * Function to add copyright to footer, uses the const INFO site as website
- * company as company name
+ * Appends a copyright notice.
+ * @param {string} [title='This Website'] - Title to display before ©.
  */
-function addCopyRight(title = "This WebSite") {
+function addCopyRight(title = "This Website") {
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
   const div = document.createElement("div");
   const p = document.createElement("p");
   p.style.textAlign = "center";
   p.innerHTML = `
-    ${title} © ${INFO.year}<br>Built with love by 
+    ${title} © ${INFO.year}<br>
+    Built with love by 
     <a href="${INFO.site}" style="color: #207de9;text-decoration: none;">${INFO.company}</a>
-    `;
+  `;
 
   div.appendChild(p);
-  const footer = document.querySelector("footer");
   footer.appendChild(div);
 }
 
 /**
- *
- * @param {Number} rows number of rows
- * @param {Number} cols number of columns
- * @param {Function} pushFunc function to apply on each row cols times
- * example: (boardRow) => {boardRow.push(new Cell())}
- * @returns board[rows][cols]
+ * Generates a 2D board array and applies a push function.
+ * @param {number} rows - Number of rows.
+ * @param {number} cols - Number of columns.
+ * @param {Function} pushFunc - Callback to push into each cell.
+ * @returns {Array<Array>} - Generated 2D board.
  */
 function createBoard(rows, cols, pushFunc) {
-  let board = [];
+  const board = [];
   for (let i = 0; i < rows; i++) {
     board[i] = [];
     for (let j = 0; j < cols; j++) {
-      pushFunc(board[i]);
+      pushFunc(board[i], i, j);
     }
   }
   return board;
 }
-
-function getRandomColor(nice) {
-  let sb_colors = [
+/**
+ * Returns a random color, either from a provided palette or by generating a random hex color.
+ * @param {string[]} [palette] - Optional array of hex color strings.
+ * @returns {string} - A random color in hex format.
+ */
+function getRandomColor(palette) {
+  const defaultPalette = [
     "#8e1330",
     "#8a6c1d",
     "#406555",
@@ -83,12 +85,19 @@ function getRandomColor(nice) {
     "#1992d4",
   ];
 
-  let randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-  if (nice)
-    randomColor = sb_colors[Math.floor(Math.random() * sb_colors.length)];
-  return randomColor;
+  const activePalette =
+    Array.isArray(palette) && palette.length > 0 ? palette : defaultPalette;
+
+  return activePalette[Math.floor(Math.random() * activePalette.length)];
 }
 
+// Exported object
 const sb_utils = { generateID, addCopyRight, createBoard, getRandomColor };
-document.sb = sb_utils;
+
+// For global use if needed
+if (typeof window !== "undefined") {
+  window.sb = sb_utils;
+}
+
 export { sb_utils };
+export default sb_utils;
