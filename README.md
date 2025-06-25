@@ -82,7 +82,56 @@ Example:
 addCopyRight('My Dashboard');
 ```
 
+
+### 🧱 **Element Builder**
+
+Chainable wrapper for `document.createElement` that simplifies creating and manipulating DOM elements programmatically.
+
+Useful when you want to avoid manually writing verbose DOM code in dynamic UIs or component builders.
+
+#### `ElementBuilder`
+
+```js
+new ElementBuilder(tagName)
+  .addClass('my-class')
+  .setId('element-id')
+  .setAttr('data-role', 'item')
+  .setText('Click Me')
+  .on('click', () => alert('clicked'))
+  .append(new ElementBuilder('span').setText('🔔'))
+  .build();
+```
+
+##### Available Methods:
+
+| Method                 | Description                                              |
+| ---------------------- | -------------------------------------------------------- |
+| `addClass(...classes)` | Adds one or more CSS classes.                            |
+| `setId(id)`            | Sets the element's `id`.                                 |
+| `setText(text)`        | Sets the element's text content.                         |
+| `setAttr(name, value)` | Sets an attribute.                                       |
+| `on(event, handler)`   | Attaches an event listener.                              |
+| `append(child)`        | Appends a child (also works with other ElementBuilders). |
+| `build()`              | Returns the final DOM element.                           |
+
 ---
+
+#### `labelAndInput({ labelText, inputType, id, name, required }): [label, input]`
+
+Helper function that returns a `<label>` and `<input>` pair as `ElementBuilder` instances. Great for building forms dynamically.
+
+```js
+const [label, input] = labelAndInput({
+  labelText: 'Email',
+  inputType: 'email',
+  id: 'email',
+  name: 'email',
+  required: true
+});
+
+document.body.append(label.build(), input.build());
+```
+
 
 ### 🌐 Website
 
@@ -95,3 +144,4 @@ Made with ❤️ by [SaraWebs](https://sarawebs.com)
 * Internal admin panels
 * Static sites or dashboards
 * Quickly prototyping UI logic
+* Form builders and dynamic DOM components
