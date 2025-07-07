@@ -2,14 +2,20 @@
   "name": "@sarawebs/sb-utils",
   "version": "1.0.1",
   "description": "SaraWebs utility functions for web apps and tools",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "format": "npx prettier --write .",
+    "build": "npm run format && rollup -c",
     "prepare": "npm run build",
     "test": "vitest"
   },
