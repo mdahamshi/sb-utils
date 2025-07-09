@@ -145,3 +145,7 @@ Made with ❤️ by [SaraWebs](https://sarawebs.com)
 * Static sites or dashboards
 * Quickly prototyping UI logic
 * Form builders and dynamic DOM components
+
+### 1.0.2
+
+Adds support for commonJS
