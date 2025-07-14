@@ -146,6 +146,4 @@ Made with ❤️ by [SaraWebs](https://sarawebs.com)
 * Quickly prototyping UI logic
 * Form builders and dynamic DOM components
 
-### 1.0.2
-
-Adds support for commonJS
+See the full [Changelog](./changelog.md) for version history.
