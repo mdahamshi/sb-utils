@@ -7,6 +7,7 @@ import {
   getRandomColor,
 } from "./utils.js";
 import { ElementBuilder, labelAndInput } from "./dom.js";
+import { LinkPreviewFetcher } from "./LinkPreviewFetcher.js";
 
 const sb_utils = {
   generateID,
@@ -15,6 +16,7 @@ const sb_utils = {
   getRandomColor,
   ElementBuilder,
   labelAndInput,
+  LinkPreviewFetcher,
 };
 
 if (typeof window !== "undefined") {
@@ -28,6 +30,7 @@ export {
   getRandomColor,
   ElementBuilder,
   labelAndInput,
+  LinkPreviewFetcher,
 };
 
 export default sb_utils;
