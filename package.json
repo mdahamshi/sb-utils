@@ -1,6 +1,6 @@
 {
   "name": "@sarawebs/sb-utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "SaraWebs utility functions for web apps and tools",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
