@@ -1,5 +1,5 @@
 export class LinkPreviewFetcher {
-  constructor(apiKey, httpClient = fetch) {
+  constructor(apiKey, httpClient = (...args) => fetch(...args)) {
     this.apiKey = apiKey;
     this.httpClient = httpClient;
     this.apiEndpoint = "https://api.linkpreview.net/";
