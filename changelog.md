@@ -1,3 +1,25 @@
+### 2.0.0
+
+### addCopyRight Function
+
+Uses destructured parameters directly.
+
+Adds support for custom year and target="\_blank" for links.
+
+Fully declarative, easy to extend.
+
+### usage:
+
+```js
+addCopyRight({
+  title: "My App",
+  company: "MyCo",
+  site: "https://myco.dev",
+  year: 2023,
+});
+addCopyRight({ title: "My App", company: "MyCo", site: "https://myco.dev" }); // current year passed
+```
+
 ### 1.0.3
 
 ### Added: `LinkPreviewFetcher` Class

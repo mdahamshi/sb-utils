@@ -1,9 +1,3 @@
-const INFO = {
-  site: "https://sarawebs.com",
-  company: "SaraWebs",
-  year: new Date().getFullYear(),
-};
-
 /**
  * Generates a random ID with optional prefix.
  * @param {string} [prefix=''] - Prefix to prepend to the ID.
@@ -14,10 +8,20 @@ function generateID(prefix = "") {
 }
 
 /**
- * Appends a copyright notice.
- * @param {string} [title='This Website'] - Title to display before ©.
+ * Appends a copyright notice to the footer.
+ *
+ * @param {Object} [options={}] - Configuration options.
+ * @param {string} [options.title='This Website'] - The title to display before the © symbol.
+ * @param {string} [options.site='https://sarawebs.com'] - The URL to link the company name to.
+ * @param {string} [options.company='SaraWebs'] - The company or author's name to display.
+ * @param {number} [options.year=currentYear] - The year to display. Defaults to the current year.
  */
-function addCopyRight(title = "This Website") {
+function addCopyRight({
+  title = "This Website",
+  site = "https://sarawebs.com",
+  company = "SaraWebs",
+  year = new Date().getFullYear(),
+} = {}) {
   const footer = document.querySelector("footer");
   if (!footer) return;
 
@@ -25,11 +29,10 @@ function addCopyRight(title = "This Website") {
   const p = document.createElement("p");
   p.style.textAlign = "center";
   p.innerHTML = `
-    ${title} © ${INFO.year}<br>
-    Built with love by 
-    <a href="${INFO.site}" style="color: #207de9;text-decoration: none;">${INFO.company}</a>
+    ${title} © ${year}<br>
+    Built with ❤️ by 
+    <a href="${site}" target="_blank" rel="noopener" style="color:#207de9;text-decoration:none;">${company}</a>
   `;
-
   div.appendChild(p);
   footer.appendChild(div);
 }
